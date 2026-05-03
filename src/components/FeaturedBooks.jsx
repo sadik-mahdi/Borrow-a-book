@@ -1,4 +1,4 @@
-"use client";
+
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
@@ -88,7 +88,7 @@ export const FeaturedBooks = async() => {
             </div>
             
             <div className="w-full lg:w-auto flex-1 max-w-md">
-              <form className="flex flex-col sm:flex-row gap-3 w-full" onSubmit={(e) => e.preventDefault()}>
+              <form className="flex flex-col sm:flex-row gap-3 w-full">
                 <input 
                   type="email" 
                   placeholder="Enter your email address" 

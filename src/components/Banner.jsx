@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { FaCircleArrowRight } from 'react-icons/fa6';
 
 const Banner = () => {
   return (
@@ -28,13 +29,11 @@ const Banner = () => {
           
           <div className="pt-6">
             <Link 
-              href="/books" 
-              className="btn btn-primary btn-lg rounded-full border-none shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 px-10 group/btn"
+              href="/allBooks" 
+              className="btn btn-primary btn-lg rounded-full border-none hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 px-10 group/btn"
             >
               <span className="text-lg">Browse Now</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 ml-1 group-hover/btn:translate-x-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
+             <FaCircleArrowRight />
             </Link>
           </div>
         </div>
