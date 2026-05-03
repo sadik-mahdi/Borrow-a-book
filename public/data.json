@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1,
+        "title": "The Silent Echo",
+        "author": "Elena Rossi",
+        "description": "A haunting tale of a small village where secrets are passed down through generations in whispers.",
+        "category": "Story",
+        "available_quantity": 14,
+        "image_url": "https://loremflickr.com/400/600/forest,mystery?lock=1"
+    },
+    {
+        "id": 2,
+        "title": "Quantum Foundations",
+        "author": "Dr. Aris Thorne",
+        "description": "An introductory guide to quantum mechanics and the bizarre reality of subatomic particles.",
+        "category": "Science",
+        "available_quantity": 8,
+        "image_url": "https://loremflickr.com/400/600/physics,atom?lock=2"
+    },
+    {
+        "id": 3,
+        "title": "Mastering React 19",
+        "author": "Sarah Jenkins",
+        "description": "The definitive resource for building modern, high-performance web applications using the latest React features.",
+        "category": "Tech",
+        "available_quantity": 25,
+        "image_url": "https://loremflickr.com/400/600/coding,javascript?lock=3"
+    },
+    {
+        "id": 4,
+        "title": "Beyond the Event Horizon",
+        "author": "Marcus Vane",
+        "description": "A deep dive into black hole physics and the latest theories regarding spacetime singularities.",
+        "category": "Science",
+        "available_quantity": 5,
+        "image_url": "https://loremflickr.com/400/600/space,galaxy?lock=4"
+    },
+    {
+        "id": 5,
+        "title": "The Algorithm's Apprentice",
+        "author": "Leo Sterling",
+        "description": "A thrilling mystery set in a world where AI determines every legal and social outcome.",
+        "category": "Story",
+        "available_quantity": 11,
+        "image_url": "https://loremflickr.com/400/600/robot,noir?lock=5"
+    },
+    {
+        "id": 6,
+        "title": "Cybersecurity Frontiers",
+        "author": "Naomi Wu",
+        "description": "Exploring the evolving landscape of digital defense and the ethics of ethical hacking.",
+        "category": "Tech",
+        "available_quantity": 19,
+        "image_url": "https://loremflickr.com/400/600/hacking,security?lock=6"
+    },
+    {
+        "id": 7,
+        "title": "The Genetic Map",
+        "author": "Dr. Clara Hsu",
+        "description": "Understanding the human genome and how CRISPR technology is revolutionizing medicine.",
+        "category": "Science",
+        "available_quantity": 12,
+        "image_url": "https://loremflickr.com/400/600/dna,medical?lock=7"
+    },
+    {
+        "id": 8,
+        "title": "Rust for Systems Programming",
+        "author": "David Miller",
+        "description": "Learn to write safe, fast, and concurrent code with the Rust programming language.",
+        "category": "Tech",
+        "available_quantity": 30,
+        "image_url": "https://loremflickr.com/400/600/programming,rust?lock=8"
+    },
+    {
+        "id": 9,
+        "title": "Midnight in the Clockwork City",
+        "author": "Isabel Thorne",
+        "description": "A steampunk adventure where a young inventor discovers a conspiracy powered by ancient steam.",
+        "category": "Story",
+        "available_quantity": 7,
+        "image_url": "https://loremflickr.com/400/600/steampunk,gears?lock=9"
+    },
+    {
+        "id": 10,
+        "title": "Climate Resilience",
+        "author": "Julian Rivers",
+        "description": "A scientific analysis of how ecosystems adapt to rapid environmental changes.",
+        "category": "Science",
+        "available_quantity": 22,
+        "image_url": "https://loremflickr.com/400/600/nature,climate?lock=10"
+    },
+    {
+        "id": 11,
+        "title": "The Cloud Native Handbook",
+        "author": "Amit Kumar",
+        "description": "Architecting scalable systems using Kubernetes, Docker, and Microservices.",
+        "category": "Tech",
+        "available_quantity": 15,
+        "image_url": "https://loremflickr.com/400/600/cloud,server?lock=11"
+    },
+    {
+        "id": 12,
+        "title": "Last Flight of the Phoenix",
+        "author": "Robert Case",
+        "description": "A gritty space opera about a crew trying to survive on the fringes of a dying galaxy.",
+        "category": "Story",
+        "available_quantity": 4,
+        "image_url": "https://loremflickr.com/400/600/spaceship,nebula?lock=12"
+    }
+]
