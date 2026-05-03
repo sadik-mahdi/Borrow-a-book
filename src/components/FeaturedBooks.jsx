@@ -4,8 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 
 export const FeaturedBooks = async() => {
-  // Fetch data with no-store to ensure fresh data if it's dynamic, 
-  // or default fetch if it's static
   const res = await fetch('http://localhost:3000/data.json', { cache: 'no-store' }).catch(() => null);
   let books = [];
   if (res) {

@@ -10,7 +10,7 @@ const Navbar = () => {
   const navLinks = (
     <>
       <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-      <li><Link href="/books" className="hover:text-primary transition-colors">All Books</Link></li>
+      <li><Link href="/allBooks" className=" transition-colors">All Books</Link></li>
       {user && (
         <li><Link href="/profile" className="hover:text-primary transition-colors">My Profile</Link></li>
       )}
@@ -39,14 +39,14 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 font-medium gap-2">
           <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-          <li><Link href="/books" className="hover:text-primary transition-colors">All Books</Link></li>
+          <li><Link href="/allBooks" className="hover:text-primary transition-colors">All Books</Link></li>
           <li><Link href="/profile" className="hover:text-primary transition-colors">My Profile</Link></li>
         </ul>
       </div>
 
       <div className="navbar-end">
         <Link href="/login" className="btn btn-primary btn-sm px-6">
-          Login
+          <button>Login</button>
         </Link>
       </div>
     </div>
