@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export const FeaturedBooks = async() => {
-  const res = await fetch('http://localhost:3000/data.json', { cache: 'no-store' }).catch(() => null);
+  const res = await fetch('https://borrow-book-server.onrender.com/books', { cache: 'no-store' }).catch(() => null);
   let books = [];
   if (res) {
     books = await res.json();

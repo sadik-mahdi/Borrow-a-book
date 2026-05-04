@@ -7,7 +7,7 @@ import { FaRegCopy } from 'react-icons/fa';
 const BookDetailsPage =  async({ params }) => {
   const { id } = await params;
   
-  const res = await fetch('http://localhost:3000/data.json', { cache: 'no-store' }).catch(() => null);
+  const res = await fetch('https://borrow-book-server.onrender.com/books', { cache: 'no-store' }).catch(() => null);
   let allBooks = [];
   if (res) {
     allBooks = await res.json();

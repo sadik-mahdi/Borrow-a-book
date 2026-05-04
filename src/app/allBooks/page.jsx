@@ -5,7 +5,7 @@ import Link from 'next/link';
 const AllBooksPage = async() => {
   let allBooks = [];
   try {
-    const res = await fetch('http://localhost:3000/data.json', { cache: 'no-store' });
+    const res = await fetch('https://borrow-book-server.onrender.com/books', { cache: 'no-store' });
     allBooks = await res.json();
   } catch (error) {
     console.error("Failed to fetch books:", error);
