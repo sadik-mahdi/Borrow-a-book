@@ -7,14 +7,13 @@ import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
   const router = useRouter();
-  const userData = authClient.useSession();
-  const sessionUser = userData.data?.user;
-
+  const { data: session } = authClient.useSession();
+  const sessionUser = session?.user;
   const handleLogout = async () => {
     await authClient.signOut({
       fetchOptions: {
         onSuccess: () => {
-          router.push("/signIn"); // Redirects to sign-in page after logging out
+          router.push("/signIn");
         },
       },
     });
@@ -43,6 +42,7 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
+        
         <Link href="/" className="btn btn-ghost text-2xl font-bold">
           <span className="bg-clip-text text-transparent bg-linear-to-r from-primary to-secondary">
             BorrowBook
@@ -65,14 +65,20 @@ const Navbar = () => {
         ) : (
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <span className="text-sm font-semibold hidden sm:block">{sessionUser.name}</span>
+              <span className="text-sm font-semibold hidden sm:block">
+                {sessionUser.name}
+              </span>
               <Avatar size="sm">
-                <Avatar.Image alt={sessionUser.name} src={sessionUser.image} />
-                <Avatar.Fallback>{sessionUser.name?.charAt(0)}</Avatar.Fallback>
+                <Avatar.Image 
+                  alt={sessionUser.name || "User"} 
+                  src={sessionUser.image} 
+                />
+                <Avatar.Fallback>
+                  {sessionUser.name?.charAt(0) || "U"}
+                </Avatar.Fallback>
               </Avatar>
             </div>
             
-            {/* Logout Button */}
             <Button 
               onPress={handleLogout} 
               color="danger" 
