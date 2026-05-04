@@ -3,16 +3,16 @@ import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
 
-export const FeaturedBooks = async() => {
-  const res = await fetch('https://borrow-book-server.onrender.com/books', { cache: 'no-store' }).catch(() => null);
+export const FeaturedBooks = async () => {
+  const res = await fetch('http://localhost:3000/data.json', { cache: 'no-store' }).catch(() => null);
   let books = [];
   if (res) {
     books = await res.json();
   }
-  
+
   const featured = books.slice(0, 4);
 
-  return ( 
+  return (
     <div className="py-20 bg-base-100">
       <div className="container mx-auto px-6 lg:px-16">
         <div className="flex flex-col items-center justify-center mb-12 space-y-3">
@@ -32,11 +32,11 @@ export const FeaturedBooks = async() => {
             {featured.map((f) => (
               <div key={f.id} className="card bg-base-100 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-base-200 group overflow-hidden">
                 <figure className="relative h-64 w-full bg-gray-100 overflow-hidden">
-                  <Image 
-                    src={f.image_url} 
-                    alt={f.title} 
+                  <Image
+                    src={f.image_url}
+                    alt={f.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500 ease-in-out" 
+                    className="object-cover group-hover:scale-110 transition-transform duration-500 ease-in-out"
                   />
                   <div className="absolute top-3 right-3 badge badge-primary font-semibold shadow-md">
                     {f.category}
@@ -55,7 +55,7 @@ export const FeaturedBooks = async() => {
                     </Link>
                   </div>
                 </div>
-              </div> 
+              </div>
             ))}
           </div>
         ) : (
@@ -63,7 +63,7 @@ export const FeaturedBooks = async() => {
             <p className="text-xl text-gray-500">No featured books available at the moment.</p>
           </div>
         )}
-        
+
         <div className="mt-12 text-center">
           <Link href="/books" className="btn btn-outline btn-primary btn-lg rounded-full px-10 hover:shadow-lg transition-all">
             View All Books
@@ -73,10 +73,10 @@ export const FeaturedBooks = async() => {
 
       <div className="py-20 bg-base-200">
         <div className="container mx-auto px-8 lg:px-16 relative overflow-hidden rounded-3xl bg-linear-to-r from-blue-700 to-indigo-900 shadow-2xl">
-          {/* Background decorative elements */}
+
           <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-white opacity-10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-72 h-72 bg-blue-400 opacity-20 rounded-full blur-2xl"></div>
-          
+
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between py-16 gap-10">
             <div className="text-left max-w-xl">
               <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
@@ -86,14 +86,14 @@ export const FeaturedBooks = async() => {
                 Subscribe to our newsletter to receive the latest updates, exclusive book recommendations, and special offers straight to your inbox.
               </p>
             </div>
-            
+
             <div className="w-full lg:w-auto flex-1 max-w-md">
               <form className="flex flex-col sm:flex-row gap-3 w-full">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email address" 
-                  className="input input-bordered input-lg w-full rounded-full shadow-inner bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-300" 
-                  required 
+                <input
+                  type="email"
+                  placeholder="Enter your email address"
+                  className="input input-bordered input-lg w-full rounded-full shadow-inner bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                  required
                 />
                 <button className="btn btn-primary btn-lg rounded-full px-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-none bg-blue-500 hover:bg-blue-400 text-white">
                   Subscribe
