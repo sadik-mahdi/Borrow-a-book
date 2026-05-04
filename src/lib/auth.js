@@ -2,7 +2,7 @@
   import { MongoClient } from "mongodb";
   import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
-  const client = new MongoClient(process.env.AUTH_DB_URI);
+  const client = new MongoClient(process.env.AUTH_DB_URI || "mongodb://localhost:27017/dummy");
   const db = client.db('borrow-book');
 
   export const auth = betterAuth({
