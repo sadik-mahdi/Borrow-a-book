@@ -10,7 +10,7 @@ export function UpdateModal() {
   const onSubmit = async (e) => {
   e.preventDefault();
   const name = e.target.name.value;
-  const image = e.target.image.value; // Ensure the input name matches this
+  const image = e.target.image.value;
   const { data, error } = await authClient.updateUser({
     name: name,
     image: image,
@@ -53,7 +53,6 @@ export function UpdateModal() {
                 </form>
               </Surface>
             </Modal.Body>
-            
           </Modal.Dialog>
         </Modal.Container>
       </Modal.Backdrop>

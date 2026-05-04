@@ -1,21 +1,30 @@
 "use client";
 
 import { authClient } from '@/lib/auth-client';
+import { Avatar, Button } from '@heroui/react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
-
+  const router = useRouter();
   const userData = authClient.useSession();
-  const users = userData.data?.user;
-  console.log(users);
+  const sessionUser = userData.data?.user;
 
-  const [user, setUser] = useState(null);
+  const handleLogout = async () => {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          router.push("/signIn"); // Redirects to sign-in page after logging out
+        },
+      },
+    });
+  };
+
   const navLinks = (
     <>
       <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-      <li><Link href="/allBooks" className=" transition-colors">All Books</Link></li>
-      {user && (
+      <li><Link href="/allBooks" className="transition-colors">All Books</Link></li>
+      {sessionUser && (
         <li><Link href="/profile" className="hover:text-primary transition-colors">My Profile</Link></li>
       )}
     </>
@@ -26,10 +35,11 @@ const Navbar = () => {
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow bg-base-100 rounded-box w-52">
+          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow bg-base-100 rounded-box w-52">
             {navLinks}
           </ul>
         </div>
@@ -42,25 +52,39 @@ const Navbar = () => {
       
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 font-medium gap-2">
-          <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-          <li><Link href="/allBooks" className="hover:text-primary transition-colors">All Books</Link></li>
-          <li><Link href="/profile" className="hover:text-primary transition-colors">My Profile</Link></li>
+          {navLinks}
         </ul>
       </div>
 
-      {!users && <div className="navbar-end gap-5">
-        <Link href="/signIn" className="btn btn-primary btn-sm px-6">
-          <button>Sign In</button>
-        </Link>
-        <Link href="/signup" className="btn btn-primary btn-sm px-6">
-          <button>Sign Up</button>
-        </Link>
-      </div>}
-      {
-        user && <div>
-          
-        </div>
-      }
+      <div className="navbar-end gap-5">
+        {!sessionUser ? (
+          <div className="flex gap-4">
+            <Link href="/signIn" className="btn btn-primary btn-sm px-6">Sign In</Link>
+            <Link href="/signup" className="btn btn-primary btn-sm px-6">Sign Up</Link>
+          </div>
+        ) : (
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-semibold hidden sm:block">{sessionUser.name}</span>
+              <Avatar size="sm">
+                <Avatar.Image alt={sessionUser.name} src={sessionUser.image} />
+                <Avatar.Fallback>{sessionUser.name?.charAt(0)}</Avatar.Fallback>
+              </Avatar>
+            </div>
+            
+            {/* Logout Button */}
+            <Button 
+              onPress={handleLogout} 
+              color="danger" 
+              variant="flat" 
+              size="sm" 
+              className="font-semibold"
+            >
+              Logout
+            </Button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

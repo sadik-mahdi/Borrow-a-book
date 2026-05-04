@@ -31,12 +31,10 @@ const BookDetailsPage =  async({ params }) => {
 
         <div className="flex flex-col lg:flex-row bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
           
-          {/* Left Side: Large Book Cover */}
-          <div className="w-full lg:w-5/12 bg-gray-100 relative min-h-[400px] lg:min-h-[600px] flex items-center justify-center p-8 lg:p-12">
-            {/* Subtle background decoration */}
+          <div className="w-full lg:w-5/12 bg-gray-100 relative min-h-100 lg:min-h-150 flex items-center justify-center p-8 lg:p-12">
             <div className="absolute inset-0 bg-linear-to-br from-blue-50 to-indigo-100 opacity-50"></div>
             
-            <div className="relative w-full max-w-[320px] aspect-[2/3] rounded-lg shadow-2xl overflow-hidden hover:scale-105 transition-transform duration-500">
+            <div className="relative w-full max-w-[320px] aspect-2/3 rounded-lg shadow-2xl overflow-hidden hover:scale-105 transition-transform duration-500">
               <Image 
                 src={book.image_url} 
                 alt={book.title} 
