@@ -45,8 +45,8 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end gap-5">
-        <Link href="/login" className="btn btn-primary btn-sm px-6">
-          <button>Login</button>
+        <Link href="/signin" className="btn btn-primary btn-sm px-6">
+          <button>Log In</button>
         </Link>
         <Link href="/signup" className="btn btn-primary btn-sm px-6">
           <button>Sign Up</button>

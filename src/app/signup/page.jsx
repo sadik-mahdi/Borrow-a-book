@@ -35,7 +35,7 @@ export default function SignupForm() {
     }
 
     console.log("Signup successful:", data);
-    router.push('/login');
+    router.push('/');
   };
 
   return (
