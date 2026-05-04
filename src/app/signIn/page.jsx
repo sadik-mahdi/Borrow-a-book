@@ -3,12 +3,19 @@ import React, { useState } from 'react';
 import { User, Mail, Lock, Eye as EyeIcon, EyeOff } from 'lucide-react';
 import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
+import { FaGoogle } from 'react-icons/fa';
 
 export default function LogInForm() {
 
     const [showPassword, setShowPassword] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
     const router = useRouter();
+
+     const handleGoogle = async() => {
+            await authClient.signIn.social({
+            provider: "google",
+        });
+        }
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -31,6 +38,7 @@ export default function LogInForm() {
 
         console.log("Signin successful:", data);
         router.push('/');
+
     };
 
     return (
@@ -95,7 +103,16 @@ export default function LogInForm() {
                 <p className="text-center text-slate-600 text-sm">
                     Register a new account <a href="/signup" className="text-primary font-semibold hover:underline">Sign Up</a>
                 </p>
+
+                <p className='text-center'>Or</p>
+
+                <div>
+                    <button onClick={handleGoogle} className='btn text-center w-full'><FaGoogle />Sign in with Google</button>
+                </div>
+
             </div>
+
+            
         </div>
     );
 }

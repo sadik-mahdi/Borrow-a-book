@@ -25,7 +25,7 @@ export default function SignupForm() {
       image,
       email,
       password,
-      callbackURL : '/login'
+      callbackURL: '/login'
     })
 
     if (error) {
@@ -37,7 +37,6 @@ export default function SignupForm() {
     console.log("Signup successful:", data);
     router.push('/');
   };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 space-y-6">
@@ -127,7 +126,7 @@ export default function SignupForm() {
         </form>
 
         <p className="text-center text-slate-600 text-sm">
-          Already have an account? <a href="/login" className="text-primary font-semibold hover:underline">Log in</a>
+          Already have an account? <a href="/signIn" className="text-primary font-semibold hover:underline">Sign in</a>
         </p>
       </div>
     </div>
