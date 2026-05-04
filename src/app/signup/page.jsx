@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { User, Mail, Lock, Eye as EyeIcon, EyeOff } from 'lucide-react';
 import { authClient } from '@/lib/auth-client';
-
 import { useRouter } from 'next/navigation';
 
 export default function SignupForm() {

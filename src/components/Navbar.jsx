@@ -1,12 +1,16 @@
 "use client";
 
+import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
 import { useState } from 'react';
 
 const Navbar = () => {
+
+  const userData = authClient.useSession();
+  const users = userData.data?.user;
+  console.log(users);
+
   const [user, setUser] = useState(null);
-
-
   const navLinks = (
     <>
       <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
@@ -44,14 +48,19 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="navbar-end gap-5">
+      {!users && <div className="navbar-end gap-5">
         <Link href="/signIn" className="btn btn-primary btn-sm px-6">
           <button>Sign In</button>
         </Link>
         <Link href="/signup" className="btn btn-primary btn-sm px-6">
           <button>Sign Up</button>
         </Link>
-      </div>
+      </div>}
+      {
+        user && <div>
+          
+        </div>
+      }
     </div>
   );
 };

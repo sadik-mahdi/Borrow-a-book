@@ -32,7 +32,7 @@ export const FeaturedBooks = async () => {
             {featured.map((f) => (
               <div key={f.id} className="card bg-base-100 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-base-200 group overflow-hidden">
                 <figure className="relative h-64 w-full bg-gray-100 overflow-hidden">
-                  <Image
+                  <Image 
                     src={f.image_url}
                     alt={f.title}
                     fill

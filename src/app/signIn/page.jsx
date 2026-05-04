@@ -27,7 +27,7 @@ export default function LogInForm() {
         const { data, error } = await authClient.signUp.email({
             email,
             password,
-            callbackURL: '/login'
+            callbackURL: '/signIn'
         })
 
         if (error) {
