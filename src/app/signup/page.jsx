@@ -12,30 +12,22 @@ export default function SignupForm() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    setErrorMsg('');
 
     const name = e.target.name.value;
     const image = e.target.image.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const { data, error } = await authClient.signUp.email({
-      name,
-      image,
-      email,
-      password,
-      callbackURL: '/login'
-    })
-
-    if (error) {
-      console.error(error);
-      setErrorMsg(error.message || 'An error occurred during sign up.');
-      return;
-    }
-
-    console.log("Signup successful:", data);
-    router.push('/');
+    const {data, error} = await authClient.signUp.email({ 
+      name, 
+      image, 
+      email, 
+      password 
+    });
+    console.log(data , error);
   };
+
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 space-y-6">
