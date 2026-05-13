@@ -32,7 +32,7 @@ const Banner = () => {
               href="/allBooks" 
               className="btn btn-primary btn-lg rounded-full border-none hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 px-10 group/btn"
             >
-              <span className="text-lg">Browse Now</span>
+              <span className="text-lg animate__backOutRight">Browse Now</span>
              <FaCircleArrowRight />
             </Link>
           </div>

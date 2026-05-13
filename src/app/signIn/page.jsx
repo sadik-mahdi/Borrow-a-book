@@ -1,11 +1,11 @@
 'use client';
 import React, { useState } from 'react';
-import { User, Mail, Lock, Eye as EyeIcon, EyeOff } from 'lucide-react';
+import { Mail, Lock, Eye as EyeIcon, EyeOff } from 'lucide-react';
 import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
 import { FaGoogle } from 'react-icons/fa';
 
-export default function LogInForm() {
+export default function SignInForm() {
 
     const [showPassword, setShowPassword] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
@@ -19,20 +19,19 @@ export default function LogInForm() {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        setErrorMsg('');
 
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        const { data, error } = await authClient.signUp.email({
+        const { data, error } = await authClient.signIn.email({
             email,
             password,
-            callbackURL: '/signIn'
+            callbackURL: '/'
         })
 
         if (error) {
             console.error(error);
-            setErrorMsg(error.message || 'An error occurred during sign up.');
+            setErrorMsg(error.message || 'An error occurred during sign in.');
             return;
         }
 
@@ -46,7 +45,7 @@ export default function LogInForm() {
             <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 space-y-6">
 
                 <div className="text-center space-y-2">
-                    <h1 className="text-3xl font-bold text-slate-800">Log in to Your Account</h1>
+                    <h1 className="text-3xl font-bold text-slate-800">Sign in to Your Account</h1>
                 </div>
 
                 {errorMsg && (

@@ -24,6 +24,11 @@ export default function SignupForm() {
       email, 
       password 
     });
+
+    if(!error){
+      router.push('/');
+    }
+
     console.log(data , error);
   };
 
