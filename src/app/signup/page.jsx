@@ -26,7 +26,7 @@ export default function SignupForm() {
     });
 
     if(!error){
-      router.push('/');
+      router.push('/signIn');
     }
 
     console.log(data , error);

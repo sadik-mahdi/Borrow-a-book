@@ -11,12 +11,6 @@ export default function SignInForm() {
     const [errorMsg, setErrorMsg] = useState('');
     const router = useRouter();
 
-     const handleGoogle = async() => {
-            await authClient.signIn.social({
-            provider: "google",
-        });
-        }
-
     const onSubmit = async (e) => {
         e.preventDefault();
 
@@ -37,8 +31,13 @@ export default function SignInForm() {
 
         console.log("Signin successful:", data);
         router.push('/');
-
     };
+
+    const handleGoogle = async() => {
+            await authClient.signIn.social({
+            provider: "google",
+        });
+    }
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
@@ -95,7 +94,7 @@ export default function SignInForm() {
                         type="submit"
                         className="w-full bg-primary text-white font-bold py-3 rounded-xl shadow-lg hover:shadow-primary/30 transform hover:-translate-y-0.5 transition-all duration-200"
                     >
-                        Log In
+                        Sign In
                     </button>
                 </form>
 
