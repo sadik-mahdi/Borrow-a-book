@@ -16,6 +16,9 @@ function getDb() {
 const db = await getDb();
 
 export const auth = betterAuth({
+
+  baseURL: process.env.NEXT_PUBLIC_BETTER_AUTH_URL, 
+
   database: mongodbAdapter(db, {
     client
   }),

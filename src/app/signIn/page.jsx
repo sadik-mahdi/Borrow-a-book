@@ -35,7 +35,7 @@ export default function SignInForm() {
 
     const handleGoogle = async() => {
             await authClient.signIn.social({
-            provider: "google",
+            provider: "google"
         });
     }
 
