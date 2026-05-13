@@ -81,10 +81,9 @@ const Navbar = () => {
             
             <Button 
               onPress={handleLogout} 
-              color="danger" 
-              variant="flat" 
+              variant="solid" 
               size="sm" 
-              className="font-semibold"
+              className="font-bold shadow-md hover:scale-105 transition-transform bg-red-500 text-white"
             >
               Logout
             </Button>
